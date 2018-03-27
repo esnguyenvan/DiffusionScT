@@ -1,0 +1,26 @@
+\section{Results}
+
+Voici des examples des cartes d'équilibres que je peux générer avec l'outil. Tout les résultats sont générés pour un cas de panne moteur(s) au décollage en concervant un angle de montée de 2°. (Les conditions seront résumés dans un tableau pour la version final)
+
+Mon idée est de faire passer le plus d'information avec le moins de graphs possible. Je me concentrerai sur la phase de décollage avec des cartes en vitesse-versus-dérapage. En plus j'ajouterai un example de répartition de poussée et d'attitude de l'avion typique pour une DEP avec panne moteur. Qu'est-ce que vous en penser?
+
+\begin{figure}[hbt!]
+	\centering
+		\includegraphics[width=0.8\textwidth]{originalMapBeta_Velfin10Eng3RudFalse}
+		\caption{Original ATR with one engine failure. Markers indicate that an equilibrium exists}
+		\label{fig:originalfin1_3engine}
+\end{figure}
+
+\begin{figure}[hbt!]
+		\centering
+		\includegraphics[width=0.8\textwidth]{DEPoriginalMapBeta_Velfin10Eng15RudTrue}
+		\caption{ATR with 12 engines, three inoperatives, rudder not used. Circles indicate an equilibrium point, rectangle indicate an equilibrium with at least one engine at saturation (full throttle)}
+		\label{fig:DEPoriginalfin1_15engine}
+\end{figure}
+
+\begin{figure}[hbt!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{DEPoriginalMapBeta_Velfin07Eng15RudTrue}
+	\caption{ATR with 12 engines, three inoperatives and $S_v=0.7S_{v_0}$. Rudder not used. Circles indicate an equilibrium point, rectangle indicate an equilibrium with at least one engine at saturation (full throttle)}
+	\label{fig:DEPoriginalfin07_15engine}
+\end{figure}

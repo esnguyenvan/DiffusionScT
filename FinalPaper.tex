@@ -1,0 +1,198 @@
+\documentclass[journal]{new-aiaa}
+%\documentclass[conf]{new-aiaa} for conference papers
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage[version=4]{mhchem}
+\usepackage{siunitx}
+\usepackage{longtable,tabularx}
+\usepackage{gensymb}
+\setlength\LTleft{0pt} 
+
+\title{Towards an Aircraft with Reduced Lateral Static Stability Using Electric Differential Thrust}
+
+\author{Eric Nguyen Van\footnote{PhD, eric.nguyen-van@isae.fr, eric.nguyen\_van@onera.fr}}
+\affil{ISAE DCAS, Toulouse, France}
+\affil{ONERA DTIS, Toulouse France}
+\author{Daniel Alazard\footnote{Professor Researcher, daniel.alazard@isae.fr.} and Philippe Pastor\footnote{Professor Researcher, philippe.pastor@isae.fr.}}
+\affil{ISAE DCAS, Toulouse, France}
+\author{Carsten D\"oll\footnote{Research engineer, carsten.doll@onera.fr.}}
+\affil{ONERA DTIS, Toulouse, France}
+%
+%\author{Eric Nguyen Van\footnote{PhD candidate, ISAE-ONERA}, second author\footnote{blablabla}}.
+%\affil{ISAE-ONERA, Toulouse, France}
+%\author{Philippe Pastor\footnote{Enseignant Chercheur, DCAS, philippe.pastor@isae.fr.} Daniel Alazard\footnote{Enseignant Chercheur, DCAS, daniel.alazard@isae.fr.}}
+%\affil{ISAE-SUPAERO, Toulouse, France}
+%\author{Carsten D\"\o ll \footnote{Research Engineer, DTIS, carsten.doll@onera.fr.}}
+%\affil{ONERA, Toulouse, France}
+
+%Title : "Towards an Aircraft with Reduced Static Stability using Electric Differential Thrust"
+%
+%Introduction :
+%	Reduction of surface drag by reduction of stability surfaces
+%	Problematic with the VT dimensioning
+%	New technology : DEP
+%	Study the possibilities of VT reduction by comparison of flight envelop
+%Math modeling
+%	Equation of flight
+%	Modeling differential thrust
+%	Solving the problem by optimization
+%Parametric Aerodynamic Database
+%	Panel/VLM analysis of ATR72 with and without VT
+%	Introduction of Nicolossi's method to predict VT lift coefficient and correction of lateral coefficients
+%Results (study of single/multiple engine failure at take off)
+%	Baseline ATR72 (twin engine) with different VT size
+%	DEP configuration of the Baseline with different VT size
+%	Effect of varying the number of engine, ratio of inoperative engine and total on-board power
+%Conclusion
+%	Sum up results
+%	Why differential propulsion is interesting to reduce VT
+%	Implication and future work
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In the context of aircraft drag reduction, we study the possibility of reducing the area of the vertical tail using Distributed Electric Propulsion while maintaining lateral stability with active Differential Thrust. Distributed Electric Propulsion is usually thought of as a mean to increase aerodynamic efficiency by exploiting the benefic effects of accelerating air around key parts of the aircraft. However, it can also be seen as a collection of actuation devices generating additional moments through Differential Thrust. When the engine are distributed along the lateral axis, the aircraft designer may take advantage of the increase of control authority on yaw to reduce the static stability or the control authority provided by the vertical tail. This in turn would allow a reduction of vertical tail surface area. In order to explore and assess this idea, we suggest a framework to compare flight qualities of a traditional configuration versus a configuration using Distributed Electric Propulsion and Differential Thrust. It provides information on the flight envelop and stability of the aircraft by computing a map of the equilibriums. Thanks to a global approach, it allows to study any aircraft or DEP configurations in any flight phase. In addition, a key feature of the framework is the inclusion of the VeDSC method to compute analytically the contribution of the vertical tail to lateral stability. Here are presented the first results and potential of using differential thrust to reduce the area of the vertical tail and the reasons for us to continue developing this framework.
+\end{abstract}
+
+\clearpage
+
+\section*{Nomenclature}
+
+%\noindent(Nomenclature)
+
+{\renewcommand\arraystretch{1.0}
+\noindent\begin{longtable*}{@{}l @{\quad=\quad} l@{}}
+CCV & Control Configured Vehicle\\
+MDO & Multi-Disciplinary Optimization\\
+DEP & Distributed Electric Propulsion\\
+VT & Vertical Tail\\
+AR & Aspect Ratio\\
+$\rho$ & Air density (Kg/m$^3$)\\
+$V$ & Speed (m/s)\\
+$V_s$ & Stall speed (m/s)\\
+$V_{MC}$ & Minimum control speed (m/s)\\
+$P$ & Power (W)\\
+$T$ & Thrust (N)\\
+$\eta$ & Efficiency (-)\\
+$S$ & Wing surface area (m$^2$)\\
+$S_v$ & Vertical Tail surface area (m$^2$)\\
+b & Wingspan (m)\\
+$l_F$ & VT longitudinal position with respect to wing aerodynamic center (m)\\
+$z_v$ & vertical position of the mean aerodynamic chord of the VT (m)\\
+$V_v$ & VT volume (-)\\
+$y$ & Lateral position of engine (m)\\
+$m$ & Mass (Kg)\\
+$g$ & Gravitational acceleration (m.s$^{-2}$)\\
+$\beta$ & Side slipe angle ($\SIUnitSymbolDegree$)\\
+$\phi$ & Bank angle ($\SIUnitSymbolDegree$)\\
+$\gamma$ & Climb angle ($\SIUnitSymbolDegree$)\\
+$\mu$ & Aerodynamic bank angle ($\SIUnitSymbolDegree$)\\
+$\Omega$ & Turning rate (rad.s$^{-1}$)\\
+$\delta_a$ & Aileron input ($\SIUnitSymbolDegree$)\\
+$\delta_R$ & Rudder input ($\SIUnitSymbolDegree$)\\
+$\delta_m$ & Throttle level (-)\\
+$C_D$ & Drag force coefficient (-)\\
+$C_{Y}$ & Lateral force coefficient (-)\\
+$C_L$ & Lift force coefficient (-)\\
+$C_l$ & Rolling moment coefficient (-)\\
+$C_m$ & Pitch moment coefficient (-)\\
+$C_n$ & Yawing moment coefficient (-)\\
+$a_v$ & VT lift slope coefficient (-)\\
+\multicolumn{2}{@{}l}{Subscripts}\\
+v & Vertical Tail\\
+0 & Nominal condition or sea level\\
+b & Body attached frame\\
+\end{longtable*}}
+
+
+\input{IntroFinalPaper}
+
+\clearpage
+
+\input{StaticEquiFinalPaper}
+
+\clearpage
+
+\input{AeroDatabaseFinalPaper}
+
+\clearpage
+
+\input{ResultsFinalPaper}
+
+\clearpage 
+
+
+\section{Conclusion}
+%We are studying the possibility of reducing lateral static stability of an aircraft using Distributed Electric Propulsion and differential thrust. Attention was brought onto the advantages and current difficulties of reducing the area of the fin. Thanks to a new propulsion technology that will be tested in flight in the following years, we suggested that using differential thrust in combination with electric engines is a reliable way to greatly reduced the vertical stabilizer.
+%The potential of this idea is studied by looking at static equilibriums in critical phases of engine failure at take off, which is the dimensioning case for vertical stabilizer.
+%Preliminary results show sensibility analysis and good performances. Reduction of total installed power seems feasible as well as excellent redundancy depending on total power installed. Following results will include parametric modelisation of the aircraft and aerodynamic simulation tools to better capture the reduction of vertical stabilizer on the aerodynamic coefficients. Dynamic behaviour with basic control law and behaviour at high velocity will also be investigated.
+
+%\clearpage
+%\section{Structure}
+%
+%\section{Introduction}
+%\subsection{Aircraft design, stability requirements}
+%\begin{itemize}
+%	\item Laterale stability is fixed primarily by certification requirements \textbf{cite EASA CS, thèse Feuersanger, sweeping jets others}.
+%	\item Name quantities used to qualify performances $V_{mc}$, extreme conditions.
+%\end{itemize}
+%
+%\subsection{Reduction of stability, history}
+%\begin{itemize}
+%	\item Name aircrafts flying with reduced longitudinal static stability, and name means of stabilization (\textbf{cite abzug}). 
+%	\item Introduce the new design schem and CCV domain (\textbf{Find more litterature and aircraft examples})
+%\end{itemize}
+%
+%
+%\subsection{Reduction of stability on laterale axis}
+%\begin{itemize}
+%	\item Name work performed on laterale axis
+%	\item Cite the difficulties encountered for this axis due to stability and control requirements in emergency situations. 
+%	\item Cite precedent work on reduction of the VT by rendering it more efficient using sweeping jet (\textbf{cite sweeping jets}) both as a mean and potential gains
+%	\item cite augmented CCV NASA study
+%\end{itemize}
+%
+%
+%\subsection{Differential thrust}
+%
+%\begin{itemize}
+%	\item Introduce electric propelled airplanes and design changes concerning this technology, in particular efficency versus size, possibilities of having distributed engines to take advantages of aerodynamic blowing \textbf{cite NASA, ampere}.
+%	\item This study aims at exploring the possibilities offered by such a configuration.
+%\end{itemize}
+%
+%
+%\subsection{Structure of the study}
+%\begin{itemize}
+%	\item What do we aim -> regional transport aircraft which are the first forseen to be manufactured
+%	\item How do we contribute -> explore faisability, sensibility parameters such as power to install, configurations and control strategy to the destination of the designer. Ready a brick to include to multi-disciplinary optimization
+%	\item Mean -> simulation study, construction of the simulator and design loop with quick and low fidelity aero simulation tools. Control loops tested versus actuation performances (thrust delivered, position of thrust and reaction time).
+%\end{itemize}
+%
+%\section{Preliminary results}
+%Based on experimentally determined coefficients of a Beech99 non-linear motion model. Lateral coefficients being artifically reduced proportionally to the surface of the VT.
+%\begin{itemize}
+%	\item \textbf{Static requirements} from static equilibrium.
+%	\item Identification of the problem, over determined system. \textbf{cite overdetermined systems} application of different methodology.
+%	\item Dynamic requirements
+%\end{itemize}
+%
+%
+%\section{Work remaining}
+%Increase fidelity using more elaborated aero tools and a parametric representation of the aircraft in order to determine through simulation aero coefficients of the aircraft with and without VT.
+%Complete sensibility analysis.
+%Explore the limitations at larger velocity.
+%Explore dynamic behaviour and control allocation strategy in linear and non-linear simulations.
+
+
+
+\section*{Acknowledgments}
+The author would like to thank Mamoun El Oueldrhiri for his support in the exploration of equilibriums with distributed propulsion.
+
+\bibliography{sample}
+
+\end{document}
