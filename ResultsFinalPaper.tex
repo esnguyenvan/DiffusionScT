@@ -6,23 +6,60 @@ Mon idée est de faire passer le plus d'information avec le moins de graphs poss
 
 \begin{figure}[hbt!]
 	\centering
-		\includegraphics[width=0.8\textwidth]{originalMapBeta_Velfin10Eng3RudFalse}
-		\caption{Original ATR with one engine failure. Markers indicate that an equilibrium exists}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=0.95\textwidth]{originalMapBetaVelfin1Eng3RudFalse}
+		\caption{Original ATR72 with one engine failure.}
 		\label{fig:originalfin1_3engine}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=0.95\textwidth]{originalMapBetaVelfin1Eng15RudFalse}
+		\caption{ATR with 12 engines, three inoperatives.}
+		\label{fig:originalfin1_15engine}
+	\end{subfigure}
+	\caption{Original ATR with \ref{fig:originalfin1_3engine} twin engine, one inoperational and \ref{fig:originalfin1_15engine} twelve engines, three inoperationals. Only the rudder is used to compensate the yawing moment.}
+\end{figure}
+
+\begin{figure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=0.95\textwidth]{Defloriginalfin1Eng3RudFalse}
+		\caption{Original ATR72 with one engine failure.}
+		\label{fig:Defloriginalfin1_3engine}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=0.95\textwidth]{Defloriginalfin1Eng15RudFalse}
+		\caption{Original ATR with twelve engines, three inoperatives.}
+		\label{fig:Defloriginalfin1_15engine}
+	\end{subfigure}
+	\caption{Throttle level and rudder deflection for trim at V=60m/s, $\beta=0$}
 \end{figure}
 
 \begin{figure}[hbt!]
 		\centering
-		\includegraphics[width=0.8\textwidth]{DEPoriginalMapBeta_Velfin10Eng15RudTrue}
-		\caption{ATR with 12 engines, three inoperatives, rudder not used. Circles indicate an equilibrium point, rectangle indicate an equilibrium with at least one engine at saturation (full throttle)}
-		\label{fig:DEPoriginalfin1_15engine}
+		\begin{subfigure}{0.49\textwidth}
+			\includegraphics[width=0.95\textwidth]{DEPoriginalMapBetaVelfin1Eng15RudTrue}
+			\caption{Flight envelop, ATR with 12 engines, three inoperatives.}
+			\label{fig:DEPoriginalfin1_15engine}
+		\end{subfigure}
+		\begin{subfigure}{0.49\textwidth}
+			\includegraphics[width=0.95\textwidth]{DeflDEPoriginalfin1Eng15RudTrue}
+			\caption{Throttle level and Rudder deflection at 60m/s and $\beta=0\degree$, ATR72 with 12 engines, three inoperatives.}
+			\label{fig:DeflDEPoriginalfin1_15Eng}
+		\end{subfigure}
+		\caption{ATR72 using only differential thrust. Circles indicate an equilibrium point, rectangle indicate an equilibrium with at least one engine at saturation (full throttle)}
 \end{figure}
 
 \begin{figure}[hbt!]
 	\centering
-	\includegraphics[width=0.8\textwidth]{DEPoriginalMapBeta_Velfin07Eng15RudTrue}
-	\caption{ATR with 12 engines, three inoperatives and $S_v=0.7S_{v_0}$. Rudder not used. Circles indicate an equilibrium point, rectangle indicate an equilibrium with at least one engine at saturation (full throttle)}
-	\label{fig:DEPoriginalfin07_15engine}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=0.95\textwidth]{DEPoriginalMapBetaVelfin07Eng15RudTrue}
+		\caption{ATR with 12 engines, three inoperatives and $S_v=0.7S_{v_0}$. Rudder not used. Circles indicate an equilibrium point, rectangle indicate an equilibrium with at least one engine at saturation (full throttle)}
+		\label{fig:DEPoriginalfin07_15engine}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=0.95\textwidth]{DeflDEPoriginalfin07Eng15RudTrue}
+		\caption{Throttle level and Rudder deflection at 60m/s and $\beta=0\degree$, ATR72 with 12 engines, three inoperatives, $S_v=0.7S_{v_0}$.}
+		\label{fig:DeflDEPoriginalfin07_15Eng}
+	\end{subfigure}
 \end{figure}
 
 %----- Study Case -----
