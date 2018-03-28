@@ -1,8 +1,46 @@
 \section{Results}
 
-Voici des examples des cartes d'équilibres que je peux générer avec l'outil. Tout les résultats sont générés pour un cas de panne moteur(s) au décollage en concervant un angle de montée de 2°. (Les conditions seront résumés dans un tableau pour la version final)
+\subsection{Case study}
+With the tools developed it is possible to study a wide variety of flight situations. To keep the study consice we will limit our analysis to the situation of engine failure at take off with landing gear retracted as described by CS25.121, CS25.147 and CS12.149 \cite{CS25}. Although refering to a single certification rule, the ensight given on the tool efficiency to compare aircraft configuration and potential of differential thrust is well demonstrated.
 
-Mon idée est de faire passer le plus d'information avec le moins de graphs possible. Je me concentrerai sur la phase de décollage avec des cartes en vitesse-versus-dérapage. En plus j'ajouterai un example de répartition de poussée et d'attitude de l'avion typique pour une DEP avec panne moteur. Qu'est-ce que vous en penser?
+The certification rules indicate different flight conditions for twin engine and more than four engines. The main differences are resumed in table %CS25.121 states the following flight conditions:
+\begin{table}[hbt]
+	\caption{\label{tab:DiffTwinMulti} Certification differences between twin-engines and more than four engines, \cite{CS25}} 
+	\centering
+	\begin{tabular}{l|l|c}
+		Parameters & Twin engine & More than four engines\\
+		\hline
+		Gradient of climb, critical engine inoperative & $\leq 2.4\%$ & $\leq 3.0\%$\\
+		Heading change of $15\degree$ at 1.3$V_{SR_1}$& One engine inoperational & Two critical engines inoperational\\
+		$V_{MC} < 1.13 V_{SR}$ & One engine inoperative & One critical engine inoperative \\
+	\end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+	\caption{\label{tab:ConfigurationStudied} Configuration studied}
+	\centering
+	\begin{tabular}{l|c|c|c}
+		Parameters & Original ATR72 & DEP ATR72 & DEP ATR72 with small VT\\
+		\hline
+		Engines & 2 & 12 & 12\\
+		Inoperative engines & 1 & 3 & 3\\
+		VT area & $S_{v_0}$ & $S_{v_0}$ & $0.7 S_{v_0}$\\
+		Gradient of climb & $3.0\%$ & $3.0\%$ & $3.0\%$\\
+		Rudder allowed & Yes & No & No\\
+		\hline
+		Additional Parameters & & & \\
+		\hline
+		$V_{\textrm{app}}$=$1.13V_{\textrm{app}}$ (m/s)& 56 & 56 & 56\\
+		$V_{\textrm{sr}}$ (m/s)& 50.5 & 50.5 & 50.5\\
+		$1.3V_{\textrm{sr}}$ (m/s)& 65 & 65 & 65\\
+		VT stall limit & $\beta=15\degree$ & $\beta=15\degree$ & $\beta=15\degree$\\
+	\end{tabular}
+\end{table}
+
+%\begin{itemize}
+%\item Climb gradient with one engine inoperative may not be less than 2.4\% for twin engines
+%\item Climb gradient with one engine inoperative may not be less than 3\% for aircrafts with four engines or more.
+%\end{itemize}
 
 \begin{figure}[hbt!]
 	\centering
