@@ -1,9 +1,9 @@
 \section{Results}
 
 \subsection{Case study}
-With the tools developed it is possible to study a wide variety of flight situations. To keep the study consice we will limit our analysis to the situation of engine failure at take off with landing gear retracted as described by CS25.121, CS25.147 and CS12.149 \cite{CS25}. Although refering to a single certification rule, the ensight given on the tool efficiency to compare aircraft configuration and potential of differential thrust is well demonstrated.
+At this point, it is possible to study a wide variety of flight configuration and situations. To keep the study consice we will limit our analysis to the situation of engine failure at take off with landing gear retracted as described by CS25.121, CS25.147 and CS12.149 \cite{CS25}. The previous rules set the requirements on the climb angle, directional control and $V_{MC}$ in case of one or multiple engine failure at take-off. Although this manner bounds the study to only one flight phase, a good ensight is given on the tool efficiency to compare aircraft configuration and potential of differential thrust.
 
-The certification rules indicate different flight conditions for twin engine and more than four engines. The main differences are resumed in table %CS25.121 states the following flight conditions:
+The certification rules indicate different flight conditions for twin engine and aircraft with more than four engines. The main differences are resumed in table~\ref{tab:DiffTwinMulti}. %CS25.121 states the following flight conditions:
 \begin{table}[hbt]
 	\caption{\label{tab:DiffTwinMulti} Certification differences between twin-engines and more than four engines, \cite{CS25}} 
 	\centering
@@ -16,31 +16,50 @@ The certification rules indicate different flight conditions for twin engine and
 	\end{tabular}
 \end{table}
 
+It is of interest to investigate the most defavorable situation for differential thrust which is clearly at a $3\%$ climb angle. The same climb angle is imposed for all configuration even if it disadvantage the original ATR, it allows to compare aircraft at an identical flight situation.
+
+A total of four configurations are studied to capture the overall changes that differential thrust and VT reduction bring to the aircraft. These configurations are resumed in table~\ref{tab:ConfigurationStudied}. It must be stressed that velocities are calculated from publicly available data and thus are only indicative.
+
 \begin{table}[hbt]
-	\caption{\label{tab:ConfigurationStudied} Configuration studied}
+	\caption{\label{tab:ConfigurationStudied} Aircraft Configurations}
 	\centering
-	\begin{tabular}{l|c|c|c}
-		Parameters & Original ATR72 & DEP ATR72 & DEP ATR72 with small VT\\
+	\begin{tabular}{l|c|c|m{3cm}|m{3cm}}
+		Parameters & Original ATR72 & DEP ATR72 & DEP ATR72 Differential Thrust & DEP ATR72 Differential Thrust and small VT\\
 		\hline
-		Engines & 2 & 12 & 12\\
-		Inoperative engines & 1 & 3 & 3\\
-		VT area & $S_{v_0}$ & $S_{v_0}$ & $0.7 S_{v_0}$\\
-		Gradient of climb & $3.0\%$ & $3.0\%$ & $3.0\%$\\
-		Rudder allowed & Yes & No & No\\
+		Engines & 2 & 12 & 12 & 12\\
+		Inoperative engines & 1 & 3 & 3 & 3\\
+		VT area & $S_{v_0}$ & $S_{v_0}$ & $S_{v_0}$ & $0.7 S_{v_0}$\\
+		Rudder allowed & Yes & Yes & No & No\\
+		Gradient of climb & $3.0\%$ &$3.0\%$ & $3.0\%$ & $3.0\%$\\
+		Turn rate, $\Omega$ (rad/s)& 0 & 0& 0&0\\
+		
 		\hline
-		Additional Parameters & & & \\
+		\multicolumn{5}{c}{Additional parameters} \\
 		\hline
-		$V_{\textrm{app}}$=$1.13V_{\textrm{app}}$ (m/s)& 56 & 56 & 56\\
-		$V_{\textrm{sr}}$ (m/s)& 50.5 & 50.5 & 50.5\\
-		$1.3V_{\textrm{sr}}$ (m/s)& 65 & 65 & 65\\
-		VT stall limit & $\beta=15\degree$ & $\beta=15\degree$ & $\beta=15\degree$\\
+		$V_{\textrm{app}}$=$1.13V_{\textrm{app}}$ (m/s)& \multicolumn{4}{c}{56}\\
+		$V_{\textrm{sr}}$ (m/s)& \multicolumn{4}{c}{50.5}\\
+		$1.3V_{\textrm{sr}}$ (m/s)& \multicolumn{4}{c}{65}\\
+		VT stall limit & \multicolumn{4}{c}{$\beta=15\degree$}\\
+		\hline
+		\multicolumn{5}{c}{Flight parameters for throttle repartition and rudder deflection}\\
+		\hline
+		$\beta$ & \multicolumn{4}{c}{$0\degree$}\\
+		V(m/s) & \multicolumn{4}{c}{60}\\
 	\end{tabular}
 \end{table}
+
+
+For each configuration an equilibrium map is built by swapping side slip angle and flight velocity. Along the rudder deflection and throttle repartition of a single equilibrium point is presented. Side slip angle and velocity for this point is shown in table~\ref{tab:ConfigurationStudied}
 
 %\begin{itemize}
 %\item Climb gradient with one engine inoperative may not be less than 2.4\% for twin engines
 %\item Climb gradient with one engine inoperative may not be less than 3\% for aircrafts with four engines or more.
 %\end{itemize}
+
+\subsection{Flight envelop map}
+The flight envelops along with the accompaning throttle repartition and rudder deflection are shown in Fig~\ref{MapOrignialTwin+DEP} to Fig~\ref{fig:DEPfin07_15enginesMap+Defl}.
+
+First the baseline ATR72 is presented in Fig~\ref{fig:originalfin1_3engine} and the trim inputs in Fig~\ref{fig:Defloriginalfin1_3engine}. The climb gradient is slightly unfavorable for this configuration nevertheless, one can clearly see the compliance with the controlability at low velocity and the $15\degree$ margin at $1.3V_{SR}$
 
 \begin{figure}[hbt!]
 	\centering
@@ -54,7 +73,7 @@ The certification rules indicate different flight conditions for twin engine and
 		\caption{ATR with 12 engines, three inoperatives.}
 		\label{fig:originalfin1_15engine}
 	\end{subfigure}
-	\caption{Original ATR with \ref{fig:originalfin1_3engine} twin engine, one inoperational and \ref{fig:originalfin1_15engine} twelve engines, three inoperationals. Only the rudder is used to compensate the yawing moment.}
+	\caption{Original ATR with \ref{fig:originalfin1_3engine} twin engine, one inoperational and \ref{fig:originalfin1_15engine} twelve engines, three inoperational. Only the rudder is used to compensate the yawing moment.} \label{MapOrignialTwin+DEP}
 \end{figure}
 
 \begin{figure}
@@ -68,7 +87,7 @@ The certification rules indicate different flight conditions for twin engine and
 		\caption{Original ATR with twelve engines, three inoperatives.}
 		\label{fig:Defloriginalfin1_15engine}
 	\end{subfigure}
-	\caption{Throttle level and rudder deflection for trim at V=60m/s, $\beta=0$}
+	\caption{Throttle level and rudder deflection for trim at V=60m/s, $\beta=0$} \label{DeflOrignialeNoDiffThrust}
 \end{figure}
 
 \begin{figure}[hbt!]
@@ -83,14 +102,14 @@ The certification rules indicate different flight conditions for twin engine and
 			\caption{Throttle level and Rudder deflection at 60m/s and $\beta=0\degree$, ATR72 with 12 engines, three inoperatives.}
 			\label{fig:DeflDEPoriginalfin1_15Eng}
 		\end{subfigure}
-		\caption{ATR72 using only differential thrust. Circles indicate an equilibrium point, rectangle indicate an equilibrium with at least one engine at saturation (full throttle)}
+		\caption{ATR72 using only differential thrust. Circles indicate an equilibrium point, rectangle indicate an equilibrium with at least one engine at saturation (full throttle)}\label{DEPfin1_15engMap+Defl}
 \end{figure}
 
 \begin{figure}[hbt!]
 	\centering
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=0.95\textwidth]{DEPoriginalMapBetaVelfin07Eng15RudTrue}
-		\caption{ATR with 12 engines, three inoperatives and $S_v=0.7S_{v_0}$. Rudder not used. Circles indicate an equilibrium point, rectangle indicate an equilibrium with at least one engine at saturation (full throttle)}
+		\caption{Circles indicate an equilibrium point, rectangle indicate an equilibrium one engine at saturation (full throttle), up triangles two engines, down triangle three engines etc...}
 		\label{fig:DEPoriginalfin07_15engine}
 	\end{subfigure}
 	\begin{subfigure}{0.49\textwidth}
@@ -98,6 +117,7 @@ The certification rules indicate different flight conditions for twin engine and
 		\caption{Throttle level and Rudder deflection at 60m/s and $\beta=0\degree$, ATR72 with 12 engines, three inoperatives, $S_v=0.7S_{v_0}$.}
 		\label{fig:DeflDEPoriginalfin07_15Eng}
 	\end{subfigure}
+	\caption{ATR with 12 engines, three inoperatives and $S_v=0.7S_{v_0}$. Rudder not used.}\label{fig:DEPfin07_15enginesMap+Defl}
 \end{figure}
 
 %----- Study Case -----
