@@ -1,24 +1,30 @@
 \section{Results}
+The framework detailed before is used to generate the results presented in this section. First, the case study is explained as well as the format used to present the results. Then an interpretation of the results is proposed.
 
 \subsection{Case study}
-At this point, it is possible to study a wide variety of flight configuration and situations. To keep the study consice we will limit our analysis to the situation of engine failure at take off with landing gear retracted as described by CS25.121, CS25.147 and CS12.149 \cite{CS25}. The previous rules set the requirements on the climb angle, directional control and $V_{MC}$ in case of one or multiple engine failure at take-off. Although this manner bounds the study to only one flight phase, a good ensight is given on the tool efficiency to compare aircraft configuration and potential of differential thrust.
+At this point, it is possible to study a wide variety of flight configuration and situations. To keep the study consice we will limit our analysis to the situation of engine failures at take off with landing gear retracted as described by CS25.121, CS25.147 and CS12.149 \cite{CS25}. These certification rules set the requirements on climb angle, directional control and $V_{MC}$ in case of one or multiple engine failures. Although this manner bounds the study to only one flight phase, a good ensight is given on the tool efficiency to compare aircraft configuration and potential of differential thrust.
 
 The certification rules indicate different flight conditions for twin engine and aircraft with more than four engines. The main differences are resumed in table~\ref{tab:DiffTwinMulti}. %CS25.121 states the following flight conditions:
 \begin{table}[hbt]
-	\caption{\label{tab:DiffTwinMulti} Certification differences between twin-engines and more than four engines, \cite{CS25}} 
+	\caption{\label{tab:DiffTwinMulti} Certification requirements for twin-engines and more than four engines \cite{CS25}} 
 	\centering
 	\begin{tabular}{l|l|c}
 		Parameters & Twin engine & More than four engines\\
 		\hline
 		Gradient of climb, critical engine inoperative & $\leq 2.4\%$ & $\leq 3.0\%$\\
-		Heading change of $15\degree$ at 1.3$V_{SR_1}$& One engine inoperational & Two critical engines inoperational\\
+		Heading change of $15\degree$ at 1.3$V_{SR_1}$& One engine inoperative & Two critical engines inoperative\\
 		$V_{MC} < 1.13 V_{SR}$ & One engine inoperative & One critical engine inoperative \\
 	\end{tabular}
 \end{table}
 
-It is of interest to investigate the most defavorable situation for differential thrust which is clearly at a $3\%$ climb angle. The same climb angle is imposed for all configuration even if it disadvantage the original ATR, it allows to compare aircraft at an identical flight situation.
+It is of interest to investigate the most defavorable situation for differential thrust which is clearly at a $3\%$ climb angle and two or more critical engines inoperative. 
+
+For aircraft with more than four engines, the certification specifies that sufficient control must remain possible with the two critical engines inoperative at $1.3V_{SR}$ to perform heading changes. While $V_{MC}$ has to be demonstrated with two engines inoperative only at landing where fuel shortage is expected. This is not as constraining as for the take off where a much higher power is needed. A carefully designed architecture would normally avoid the suddent stop of engines located one next to another as in the case of Ampere \cite{Ampere_concept}. Other risks however might damage closely located engines such as bird collision or rupture of a propeller.
+
+For these reasons it has been decided to render at least three engines inoperative, representing one fourth of the total power. Thus the total number of engines for the ATR72 with DEP is fixed to twelve.
 
 A total of four configurations are studied to capture the overall changes that differential thrust and VT reduction bring to the aircraft. These configurations are resumed in table~\ref{tab:ConfigurationStudied}. It must be stressed that velocities are calculated from publicly available data and thus are only indicative.
+
 
 \begin{table}[hbt]
 	\caption{\label{tab:ConfigurationStudied} Aircraft Configurations}
@@ -32,7 +38,7 @@ A total of four configurations are studied to capture the overall changes that d
 		Rudder allowed & Yes & Yes & No & No\\
 		Gradient of climb & $3.0\%$ &$3.0\%$ & $3.0\%$ & $3.0\%$\\
 		Turn rate, $\Omega$ (rad/s)& 0 & 0& 0&0\\
-		
+		Propeller & \multicolumn{4}{c}{Fearthered, no drag assumed}\\
 		\hline
 		\multicolumn{5}{c}{Additional parameters} \\
 		\hline
@@ -48,20 +54,26 @@ A total of four configurations are studied to capture the overall changes that d
 	\end{tabular}
 \end{table}
 
-
-For each configuration an equilibrium map is built by swapping side slip angle and flight velocity. Along the rudder deflection and throttle repartition of a single equilibrium point is presented. Side slip angle and velocity for this point is shown in table~\ref{tab:ConfigurationStudied}
+The flight conditions represent a rectilinear climb at constant velocity. The same climb angle is imposed for all configuration to allow comparison in an identical flight situation.
+For each configuration an equilibrium map is built by swapping side slip angle and flight velocity. Along the flight envelop comes the rudder deflection and throttle repartition of a single equilibrium point. Side slip angle and velocity for this point is shown in table~\ref{tab:ConfigurationStudied}
 
 %\begin{itemize}
 %\item Climb gradient with one engine inoperative may not be less than 2.4\% for twin engines
 %\item Climb gradient with one engine inoperative may not be less than 3\% for aircrafts with four engines or more.
 %\end{itemize}
-
+\clearpage
 \subsection{Flight envelop map}
-The flight envelops along with the accompaning throttle repartition and rudder deflection are shown in Fig~\ref{MapOrignialTwin+DEP} to Fig~\ref{fig:DEPfin07_15enginesMap+Defl}.
+\subsubsection{Map Interpretation}
+The flight envelops along with the accompaning throttle repartition and rudder deflection are shown in Fig~\ref{MapOrignialTwin+DEP} to Fig~\ref{fig:DEPfin07_15enginesMap+Defl}. For each equilibrium map, a point indicates an equilibrium. If this equilibrium is on the edge of the stability map a line shows the limiting parameter. It is either the $5\degree$ limitation in roll, stall or rudder saturation.
+For distributed propulsion, engine saturation is indicated with different markers. A rectangular marker signifies that one engine is saturated, up-triangle two engines, down triangle three engines, left triangle four engines and finally right triangle five engines.
+Additionally, the complete zone after $\|\beta\|\geq 15\degree$ is faded, signifying that any equilibrium is valid under the condition that the VT did not yet experienced stall.
 
-First the baseline ATR72 is presented in Fig~\ref{fig:originalfin1_3engine} and the trim inputs in Fig~\ref{fig:Defloriginalfin1_3engine}. The climb gradient is slightly unfavorable for this configuration nevertheless, one can clearly see the compliance with the controlability at low velocity and the $15\degree$ margin at $1.3V_{SR}$
+\subsubsection{ATR72 twin engine and Distributed propulsion}
 
-\begin{figure}[hbt!]
+The baseline ATR72 is presented in Fig~\ref{fig:originalfin1_3engine} and the trim inputs in Fig~\ref{fig:Defloriginalfin1_3engine}.
+The climb gradient is slightly unfavorable for this configuration nevertheless, one can observe the compliance with the controlability requirement at low velocity and the $15\degree$ margin at $1.3V_{SR}$. The limiting parameters for the flight envelop are the roll angle limitation for negative side slipe, rudder deflection for positive side slipe. The map is not symmetrical as expected for the case of engine failure.
+
+\begin{figure}[hbt]
 	\centering
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=0.95\textwidth]{originalMapBetaVelfin1Eng3RudFalse}
@@ -69,28 +81,41 @@ First the baseline ATR72 is presented in Fig~\ref{fig:originalfin1_3engine} and 
 		\label{fig:originalfin1_3engine}
 	\end{subfigure}
 	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=0.95\textwidth]{originalMapBetaVelfin1Eng15RudFalse}
-		\caption{ATR with 12 engines, three inoperatives.}
-		\label{fig:originalfin1_15engine}
-	\end{subfigure}
-	\caption{Original ATR with \ref{fig:originalfin1_3engine} twin engine, one inoperational and \ref{fig:originalfin1_15engine} twelve engines, three inoperational. Only the rudder is used to compensate the yawing moment.} \label{MapOrignialTwin+DEP}
-\end{figure}
-
-\begin{figure}
-	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=0.95\textwidth]{Defloriginalfin1Eng3RudFalse}
 		\caption{Original ATR72 with one engine failure.}
 		\label{fig:Defloriginalfin1_3engine}
+	\end{subfigure}
+	\caption{Map of equilibrium points of the ATR72 twin engines and throttle level and rudder deflection for trim at V=60m/s, $\beta=0$} \label{MapOrignialTwin+DEP}
+\end{figure}
+
+Fig~\ref{fig:originalfin1_15engine} and Fig~\ref{fig:Defloriginalfin1_15engine} show the same airplane equipped with a distributed propulsion however not using differential thrust as shown in Fig~\ref{fig:Defloriginalfin1_15engine}. Despite the fact that the power loss is only one fourth of the total power, rudder deflection remains similar to the previous case and the equilibrium map is only increased by a few degres to the right.
+
+This can be reasonnably explained by the fact that the outter most engines on the left wing, despite representing only one fourth of the power, have a high level arm thus creating an important yaw moment. At this stage, designing an aircraft with Distributed Propulsion would not bring substantial reduction on the VT surface area since it remains the primary control effector for yaw. This changes once Differential Propulsion is activated.
+
+\begin{figure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=0.95\textwidth]{originalMapBetaVelfin1Eng15RudFalse}
+		\caption{ATR with 12 engines, three inoperatives.}
+		\label{fig:originalfin1_15engine}
 	\end{subfigure}
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=0.95\textwidth]{Defloriginalfin1Eng15RudFalse}
 		\caption{Original ATR with twelve engines, three inoperatives.}
 		\label{fig:Defloriginalfin1_15engine}
 	\end{subfigure}
-	\caption{Throttle level and rudder deflection for trim at V=60m/s, $\beta=0$} \label{DeflOrignialeNoDiffThrust}
+	\caption{Map of equilibrium points of the ATR72 DEP and throttle level and rudder deflection for trim at V=60m/s, $\beta=0$} \label{DeflOrignialeNoDiffThrust}
 \end{figure}
 
-\begin{figure}[hbt!]
+\subsubsection{ATR72 using differential thrust and small VT}
+Fig~\ref{fig:DEPoriginalfin1_15engine} and Fig~\ref{fig:DeflDEPoriginalfin1_15Eng} respectively show the equilibrium map and the trim inputs for an ATR72 with distributed propulsion and differential thrust activated.
+
+It is important to remember that to segregate the possible increase of control provided by the differential thrust, the rudder isn't activated for the remaing configurations as it is shown in Fig~\ref{fig:DeflDEPoriginalfin1_15Eng}. Continuing on the same figure, the thrust repartition found by the optimizer is linear except for the saturated engine(s) as it is the case here.
+
+The equilibrium map shows one main characteristic intrinct to differential thrust: control power decreases with increasing velocity.
+
+In consequence, since the flight enveloped is increased at low velocity with respect to Fig~\ref{fig:originalfin1_3engine} and Fig~\ref{fig:originalfin1_15engine}, it can be stated that differential thrust is able to maintain lateral control at low velocity. However at $1.3V_{SR}$ the control margin is too low.
+
+\begin{figure}[hbt]
 		\centering
 		\begin{subfigure}{0.49\textwidth}
 			\includegraphics[width=0.95\textwidth]{DEPoriginalMapBetaVelfin1Eng15RudTrue}
@@ -102,14 +127,17 @@ First the baseline ATR72 is presented in Fig~\ref{fig:originalfin1_3engine} and 
 			\caption{Throttle level and Rudder deflection at 60m/s and $\beta=0\degree$, ATR72 with 12 engines, three inoperatives.}
 			\label{fig:DeflDEPoriginalfin1_15Eng}
 		\end{subfigure}
-		\caption{ATR72 using only differential thrust. Circles indicate an equilibrium point, rectangle indicate an equilibrium with at least one engine at saturation (full throttle)}\label{DEPfin1_15engMap+Defl}
+		\caption{ATR72 using only differential thrust. Rectangle indicate an equilibrium with one engine at saturation (full throttle), up-triangle two engines etc...}\label{DEPfin1_15engMap+Defl}
 \end{figure}
+
+The main reason why the flight envelop is reduced at high velocity is because the VT is generating a restoring moment as soon as side slip appears. To increase the flight envelop, one simply has to reduced the VT, which is performed in Fig~\ref{fig:DEPoriginalfin07_15engine} and Fig~\ref{fig:DeflDEPoriginalfin07_15Eng}. Here the VT surface area is reduced by $30\%$, the aircraft remains positively damped, that is $C_{n_\beta}>0$, however the equilibrium map dramatically increases. The directional control margin at $1.3V_{SR}$ is now compliant with the certification despite the fact that a higher number of engines are being used at full throttle to maintain equilibrium.
+
 
 \begin{figure}[hbt!]
 	\centering
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=0.95\textwidth]{DEPoriginalMapBetaVelfin07Eng15RudTrue}
-		\caption{Circles indicate an equilibrium point, rectangle indicate an equilibrium one engine at saturation (full throttle), up triangles two engines, down triangle three engines etc...}
+		\caption{Flight envelop, ATR with 12 engines, three inoperatives and $S_v=0.7S_{v_0}$}
 		\label{fig:DEPoriginalfin07_15engine}
 	\end{subfigure}
 	\begin{subfigure}{0.49\textwidth}
@@ -117,8 +145,24 @@ First the baseline ATR72 is presented in Fig~\ref{fig:originalfin1_3engine} and 
 		\caption{Throttle level and Rudder deflection at 60m/s and $\beta=0\degree$, ATR72 with 12 engines, three inoperatives, $S_v=0.7S_{v_0}$.}
 		\label{fig:DeflDEPoriginalfin07_15Eng}
 	\end{subfigure}
-	\caption{ATR with 12 engines, three inoperatives and $S_v=0.7S_{v_0}$. Rudder not used.}\label{fig:DEPfin07_15enginesMap+Defl}
+	\caption{ATR with 12 engines, three inoperatives and $S_v=0.7S_{v_0}$. Rectangle indicates an equilibrium with one engine at saturation (full throttle), up-triangles two engines etc...}\label{fig:DEPfin07_15enginesMap+Defl}
 \end{figure}
+
+\subsubsection{Interpretation and limits of the results}
+So far the following observation were made:
+\begin{itemize}
+	\item Equipping an ATR72 with distributed propulsion would not guarranty a reduction of VT surface area due to the important level arm of engines located at the wing tip.
+	\item Differential thrust alone would be sufficient to maintain full control of the aircraft at low velocity due to the high control effectiveness.
+	\item The VT actually has to be reduced to be able to exploit the full potential of differential thrust.
+\end{itemize}
+\vspace{0.25cm}
+Limitations can be anticipated if one extrapolate these results. The reduction of VT surface area could be further increased but then stability at high velocity, when differential thrust loses its control effectiveness would be badly degraded. This is observable as each aircraft employing differential thrust see their equilibrium map reducing with increasing velocity. Nevertheless this shows that employing differential thrust brings a new paradigm for the design of the VT by changing the design case.
+
+The study is limited to the precision of the thrust model employed as well as the important assumption that no interaction takes place between propeller and wing. Models taking these effects into account can now be added to the framework.
+The framework itself suffers from the underconstrained system of equations mostly when differential thrust and rudder are allowed together. It seems that the objective function doesn't induce enough constraints on the repartition of the yaw moment. The definition of an explicit allocation function could further increase the capability of the framework to predict trim points with differential thrust. Additionally, this study is limited by the aerodynamic models that consider non linear effects only with VT geometry and linear effects otherwise. That is no consideration of stall, efficiency decrease with rudder deflection or masking of VT by the fuselage.
+
+As future work, implementation of interaction models and more precise thrust model has to be performed along with a better formulation for yawing moment distribution. In parallel of such development, the framework allows to study the dynamic behaviour of such configurations with or without stability augmentation system. It is also necessary to assess the variation of the gains observed with the configuration i.d. the total number of engines, the ratio of inoperational engines as well as the total on board power. These will be part of future research.
+
 
 %----- Study Case -----
 %One original ATR72 at take off without failed engine next to the same ATR72 at Take off with SEF:

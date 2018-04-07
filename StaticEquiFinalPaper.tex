@@ -2,7 +2,7 @@
 In this section we explain the mathematical fundamentals as well as the model used to capture differential thrust. The equation of flights in aerodynamic frame are first re-called, then modeling of propulsion is shown and finally the trimming algorithm is explained.
 
 \subsection{Equation of flight}
-The equation of flight in the aerodynamic frame, assuming uniform wind velocity are used. This form is the most commonly used when studying the lateral flight dynamics. Equations are taken from Boiffier \cite{Boiffier} and are equivalent to those presented by Goman in\cite{GomanAttainableEqui}:
+The equations of flight in the aerodynamic frame, assuming uniform wind velocity are used. This form is the most commonly used when studying the lateral flight dynamics. Equations are taken from Boiffier \cite{Boiffier} and are equivalent to those presented by Goman in\cite{GomanAttainableEqui}:
 \begin{align}
 	\begin{pmatrix}
 	m \dot{V} \\
@@ -27,7 +27,23 @@ The equation of flight in the aerodynamic frame, assuming uniform wind velocity 
 	F_{y_b}\\
 	F_{z_b}
 	\end{pmatrix} \label{E:Sdtdebut}\\
-	\textbf{I}\dot{\omega} + \omega \times \textbf{I}\omega =& \frac{1}{2} \rho S V^2 l
+	\textbf{I}
+	\begin{pmatrix}
+	\dot{p}\\
+	\dot{q}\\
+	\dot{r}
+	\end{pmatrix}
+	 + \begin{pmatrix}
+	 p\\
+	 q\\
+	 r
+	 \end{pmatrix} \times \textbf{I}
+	 \begin{pmatrix}
+	 p\\
+	 q\\
+	 r
+	 \end{pmatrix}
+ 	 =& \frac{1}{2} \rho S V^2 l
 	\begin{pmatrix}
 	C_l\\
 	C_m\\
@@ -89,7 +105,7 @@ The heading variable $\psi$ is of no interest for our study, in order to remove 
 \Omega = \left( q \sin \phi + r \cos \phi \right) \sec \theta \label{E:OmegaUse}
 \end{equation}
 
-Leaving the heading angle aside, equations \ref{E:Sdtdebut}, \ref{E:sdtMoments}, \ref{E:kinematics}, \ref{E:gammaDef} and \ref{E:OmegaUse} represent a set of $N_e=10$ equations to satisfy. The state vector is $\textbf{x}=[V,\alpha,\beta,p,q,r,\phi,\theta]$ and counts $n_x=8$ variables. The input vector corresponding to control surfaces is $\textbf{u}=[\delta_a, \delta_e, \delta_R]$ with $n_u=3$ variables. Finally we count $n_p=2$ additional parameters $\gamma$ and $\Omega$. The model is now ready to be complemented with a model of distributed propulsion.
+Leaving the heading angle aside, equations \ref{E:Sdtdebut}, \ref{E:sdtMoments}, \ref{E:kinematics}, \ref{E:gammaDef} and \ref{E:OmegaUse} represent a set of $N_e=10$ equations to satisfy. The state vector is $\textbf{x}=[V,\alpha,\beta,p,q,r,\phi,\theta]$ and counts $n_x=8$ variables. The input vector corresponding to control surfaces, respectively ailerons, elevator and rudder is $\textbf{u}=[\delta_a, \delta_e, \delta_R]$ with $n_u=3$ variables. Finally we count $n_p=2$ additional parameters $\gamma$ and $\Omega$. The model is now ready to be complemented with a model of distributed propulsion.
 
 \subsection{Propulsion modeling}
 
@@ -103,7 +119,7 @@ Fz_b
 \end{pmatrix}
 =
 \begin{pmatrix}
-\sum_{i=1}^{N} T_{m,i}\\
+\sum_{i=1}^{N} T_{x,i}\\
 0\\
 0
 \end{pmatrix}
@@ -117,7 +133,7 @@ Mz_b
 =\begin{pmatrix}
 0\\
 0\\
-\sum_{i=1}^{N} -T_{m,i} y_i
+\sum_{i=1}^{N} -T_{x,i} y_i
 \end{pmatrix}
 \end{align}
 
@@ -127,16 +143,16 @@ Mz_b
 	\caption{Illustration of thrust distribution.} Point forces are considered symmetrically placed along the wing. Unlike the configuration of Ampere \cite{Ampere_concept}, equal repartition of engine from root to wing-tip is assumed. \label{fig:AmpereTop}
 \end{figure}
 
-Where $T_{m,i}$ and $y_i$ are respectively the thrust force and distance between the body X axis and the i$^{\text{th}}$ motor. 
-We previously limited our study to propulsive system based on electric engine running propellers. For propeller aircrafts equipped by a propeller or a fan, a common thrust model can be \cite{SachsElectricPerf}:
+Where $T_{x,i}$ and $y_i$ are respectively the thrust force and distance between the body X axis and the i$^{\text{th}}$ motor. 
+We previously limited our study to propulsive system based on electric engine running propellers. For aircrafts equipped with a propeller or a fan, a common thrust model can be \cite{SachsElectricPerf}:
 \begin{equation}
-	T=PV^{-1} \eta_p \frac{\rho}{\rho_0} \delta x
+	T=PV^{-1} \eta_p \frac{\rho}{\rho_0} \delta x \label{Eq:oldThrustModel}
 \end{equation}
-Where P is the engine power at sea level, V is the flight velocity, $\eta_p$ is the propeller or fan efficiency, $\rho$ the air density and $\delta_x$ the throttle command. It modeles the loss of power of air breathing engines with variation of air density. Electric motors on the contrary, do not suffer from rarefaction of air as turbomachines, such that we may concider the following thrust model for computing $T_{m,i}$ \cite{SachsElectricPerf}:
+Where P is the engine power at sea level, V is the flight velocity, $\eta_p$ is the propeller or fan efficiency, $\rho$ the air density and $\delta_x$ the throttle command. Equation \ref{Eq:oldThrustModel} modeles the loss of power of air breathing engines with variation of air density. Electric motors on the contrary, do not suffer from rarefaction of air as turbomachines, such that we may concider the following thrust model for computing $T_{x,i}$ \cite{SachsElectricPerf}:
 \begin{equation}
-	T_{m,i}=\frac{P_E}{N}V^{-1}\eta_m\eta_p \delta_{m,i}
+	T_{x,i}=\frac{P_E}{N}V^{-1}\eta_m\eta_p \delta_{x,i}
 \end{equation}
-With $P_E$ being the total electrical power available from the line, $N$ being the total number of engine, $\eta_m$ and $\eta_p$ respectively the engine and propeller efficiency (both concidered constant). Hence, we concider that the power is equally divided between each engine. Finally, $\delta_{m,i}$ is the throttle command of each engine and is added to the control input vector : $\textbf{u}=[\delta_a , \delta_e , \delta_R , \delta_{m,1} , \dots , \delta_{m,N}]$. The number of input becomes : $n_u=N_m+3$.
+With $P_E$ being the total electrical power available from the line, $N$ being the total number of engine, $\eta_m$ and $\eta_p$ respectively the engine and propeller efficiency (both concidered constant). Hence, we concider that the power is equally divided between each engine. Finally, $\delta_{x,i}$ is the throttle command of each engine and is added to the control input vector : $\textbf{u}=[\delta_a , \delta_e , \delta_R , \delta_{x,1} , \dots , \delta_{x,N}]$. The number of input becomes : $n_u=N_m+3$.
 
 One may argue that electric propulsion will be impacted by altitude anyway. It is true in many aspects, for example:
 \begin{itemize}
@@ -156,9 +172,9 @@ N_c=&n_x+n_u+n_p-N_e\\
 N_c=&N_m+3
 \end{align}
 
-In the case where differential thrust is not used, the additional input is $N_m=1$, representing thrust, and one must fix $N_c=4$ additional constraints, similarly as in \cite{GomanAttainableEqui}. These additional constraints are added to determine the flight condition, typically fixing the following variables: $[V,\beta,\gamma,\Omega]$. With differential propulsion, the minimum number of additional input is $N_m=2$ with two engines. Consequently, the problem becomes quickly overdetermined. An infinite number of equilibrium point exist. These can be pictured by the different possible combination of throttle level and rudder action to satisfy a certain thrust and yaw moment.
+In the case where differential thrust is not used, the additional input is $N_m=1$, representing forward thrust or throttle level, and one must fix $N_c=4$ additional constraints, similarly as in \cite{GomanAttainableEqui}. These additional constraints are added to determine the flight condition, typically fixing the following variables: $[V,\beta,\gamma,\Omega]$. With differential propulsion, the minimum number of additional input is $N_m=2$ with two engines. Consequently, the problem becomes quickly overdetermined. An infinite number of equilibrium points can exist. This can be pictured by the different possible combination of throttle level and rudder action to satisfy a certain thrust and yaw moment.
 
-For overdetermined problems, it is common to use optimization methods to find a satisfying solution \cite{OppeinheimerControlAllocation}. Two options are possible: one may define the input vector as $\mathbf{u}=[\delta_a,\delta_e,\delta_n, \delta_x]$ with $\delta_n$ being the total yaw moment input and $\delta_x$ the total thrust force such that the equilibrium problem is well conditioned and then use an optimization method to find the $\delta_R$ and $\delta_{m,i}$. Or one could run the optimization on the complete set of variables. We selected the second option for this study. This is motivated by the will of maintaining a tight coupling between flight dynamics and differential thrust.
+For overdetermined problems, it is common to use optimization methods to find a satisfying solution \cite{OppeinheimerControlAllocation}. Two options are possible: one may define the input vector as $\mathbf{u}=[\delta_a,\delta_e,\delta_n, \delta_x]$ with $\delta_n$ being the total yaw moment input and $\delta_x$ the total thrust force such that the equilibrium problem is well conditioned and then use an optimization method to find the $\delta_R$ and $\delta_{x,i}$. Or one could run the optimization on the complete set of variables. We selected the second option for this study. This is motivated by the will of maintaining a tight coupling between flight dynamics and differential thrust.
 
 It should be stressed that the first option leaves room for development of 
 \begin{itemize}
@@ -169,14 +185,14 @@ It should be stressed that the first option leaves room for development of
 
 These aspects will be the object of future studies.
 
-Without loss of generality, additional higher and lower bonds are added on control inputs, angle of attack and bank angle depending on the flight phase. For example, the bank angle is limited to $\pm5\degree$ when studying engine failure at take off as stated by flight regulation \cite{CS25}. These bonds are resumed in table \ref{tab:Bonds} and are dependent on the aircraft selected for the study.
+Without loss of generality, additional higher and lower bonds are added on control inputs, angle of attack and bank angle depending on the flight phase. For example, the bank angle is limited to $\pm5\degree$ when studying engine failure at take off as stated by flight regulation \cite{CS25}. These bonds are resumed in table \ref{tab:Bonds} and are in part, dependent on the aircraft selected for the study.
 
 The following variables are chosen to imposed the flight conditions $[V,\beta,\gamma,\Omega]$. The objective function to minimize is defined as the power required to maintain equilibrium. Such an objective function makes sense in the point of view of the designer who will look for minimizing the power to install on the aircraft. Finally, to simulate engine failure we simple add a constraint on the throttle level of the corresponding engines.
 
 The problem hence writes:
 \begin{align}
-\underset{\tilde{x}}{min} & \: \:\sum_{i=1}^{N} T_{m,i} V\\
-\text{With:}\qquad \tilde{x}&=[\alpha, p, q, r, \phi, \theta, \delta_a, \delta_e, \delta_R, \delta_{m,1}, \dots, \delta_{m,N}]\\
+\underset{\tilde{x}}{min} & \: \:\sum_{i=1}^{N} T_{x,i} V\\
+\text{With:}\qquad \tilde{x}&=[\alpha, p, q, r, \phi, \theta, \delta_a, \delta_e, \delta_R, \delta_{x,1}, \dots, \delta_{x,N}]\\
 \text{Subjected to: }&\notag \\
 \begin{pmatrix}
 0 \\
@@ -197,7 +213,7 @@ C_Y\\
 \end{pmatrix}
 + \mathbf{H_{ab}} 
 \begin{pmatrix}
-\sum_{i=1}^{N} T_{m,i}\\
+\sum_{i=1}^{N} T_{x,i}\\
 0\\
 0
 \end{pmatrix} \\
@@ -211,15 +227,26 @@ C_n
 \begin{pmatrix}
 0\\
 0\\
-\sum_{i=1}^{N} T_{m,i} y_i
-\end{pmatrix} -\omega \times \textbf{I}\omega\\
+\sum_{i=1}^{N} T_{x,i} y_i
+\end{pmatrix} -
+\begin{pmatrix}
+p\\
+q\\
+r
+\end{pmatrix}\\
+\times \textbf{I}
+\begin{pmatrix}
+p\\
+q\\
+r
+\end{pmatrix}\\
 0= & p + q\sin\phi \tan\theta + r \cos\phi \tan\theta\\
 0= & q\cos\phi -r\sin \phi\\
 \Omega = & \left( q \sin \phi + r \cos \phi \right) \sec \theta \\
 \sin \gamma = & \cos\alpha\cos\beta\sin\theta - \sin\beta\sin\phi\cos\theta - \sin\alpha\cos\beta\cos\phi\cos\theta\\
-0 = & \delta_{m,1}\\
+0 = & \delta_{x,1}\\
 \vdots\notag\\
-0 = & \delta_{m,j}
+0 = & \delta_{x,j}
 \end{align}
 
 The problem being now defined, the next section will treat the constitution od the aerodynamic database to compute the aerodynamic coefficients in function of VT area as well as flight phase.
@@ -236,7 +263,7 @@ The problem being now defined, the next section will treat the constitution od t
 		$\delta_a(\degree)$ & $\pm 20$& $\pm 20$& $\pm 20$\\
 		$\delta_e(\degree)$ & $\pm 20$ & $\pm 20$ & $\pm 20$\\
 		$\delta_R(\degree)$ & $\pm 25$ & $\pm 25$ & $\pm 25$\\
-		$\delta_{m,i}$ & $0< \delta_{m,i} \leq 1$ & $0< \delta_{m,i} \leq 1$ & $0< \delta_{m,i} \leq 1$ \\
+		$\delta_{x,i}$ & $0< \delta_{x,i} \leq 1$ & $0< \delta_{x,i} \leq 1$ & $0< \delta_{x,i} \leq 1$ \\
 	\end{tabular}
 \end{table}
 

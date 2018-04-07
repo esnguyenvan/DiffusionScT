@@ -16,7 +16,7 @@ The method developed up to now is generic and could be used with any aircraft gi
 		Engine level arm & 4.1 m\\
 		Masse & 21500 Kg\\
 		Total available power & 4 000 KW\\
-		Stall velocity $V_s$ & 56 m/s\\
+		Stall velocity $V_s$ & 50.5 m/s\\
 	\end{tabular}
 \end{table}
 
@@ -44,7 +44,7 @@ Although our configuration is only weakly unconventional, capturing the effect o
 
 The main contributors to flow perturbation impacting the VT are the fuselage and the horizontal tail which are acting as end plates, reducing the downwash at the root and tip of the vertical tail. 
 
-Using numerous CFD simulations complemented with wind tunnel test on a generic commuter aircraft model, Nicolosi and his research team could establish a new semi-empirical method called VeDSC. This method focuses on predicting the VT efficiency as a function of VT geometry and aircraft components. The main assumption is the fact that contribution of each components of the aircraft on lateral coefficients; $C_{Y}$, $C_{p}$, $C_{r}$ $\equiv C_{\textrm{lat}}$, can be decoupled in the following way:
+Using numerous CFD simulations complemented with wind tunnel test on a generic commuter aircraft model, Nicolosi and his research team could establish a new semi-empirical method called VeDSC. This method focuses on predicting the VT efficiency as a function of VT geometry and aircraft components. The main assumption is the fact that contribution of each components of the aircraft on lateral coefficients: \{$C_{Y}$, $C_{p}$, $C_{r}$\} $\equiv C_{\textrm{lat}}$, can be decoupled in the following way:
 \begin{eqnarray}
 C_{\textrm{lat}_\beta} = C_{\textrm{lat},F_\beta} + C_{\textrm{lat},W_\beta} + C_{\textrm{lat},v_\beta}
 \end{eqnarray}
@@ -53,7 +53,7 @@ The VeDSC method furnishes a way to estimate the coefficient $C_{\textrm{lat},v_
 \begin{equation}
 a_v=K_F K_W K_H C_{L,v_\beta}
 \end{equation}
-Where $C_{L,v_\beta}$ is the lift slope of a swept wing determined using Diederich formula for swept wing \cite{DiederichPlanformParameter}. $K_F$, $K_W$ and $K_H$ are corrective coefficients taking into account respectively the fuselage, wing and horizontal tail effects. The reader is refered to \cite{NicolosiVTDesignReview} and \cite{NicolosiDirectionalStabilityReviewofEmpiricalMethod} for the complete formulation of these parameters.
+Where subscripts F, W, v refer respectively to fuselage, wing and vertical tail. $C_{L,v_\beta}$ is the lift slope of a swept wing determined using Diederich formula for swept wing \cite{DiederichPlanformParameter}. $K_F$, $K_W$ and $K_H$ are corrective coefficients taking into account respectively the fuselage, wing and horizontal tail effects. The reader is refered to \cite{NicolosiVTDesignReview} and \cite{NicolosiDirectionalStabilityReviewofEmpiricalMethod} for the complete formulation of these parameters.
 
 The VT contribution to lateral coefficients is then calculated using formulas given by Etkin \cite{Etkin}:
 \begin{align}
