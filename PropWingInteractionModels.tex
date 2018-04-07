@@ -1,0 +1,72 @@
+\section{Prop Wing Interaction review of models}
+
+Propeller lift or more generally, propeller forces decompose in
+\begin{itemize}
+\item Thrust perpendicular to the propeller disc
+\item Normal force parallel to the propeller disc
+\end{itemize}
+
+The total contribution of the propeller on body forces is then:
+\begin{align}
+\begin{pmatrix}
+Fx \\
+Fy \\
+Fz 
+\end{pmatrix}
+= H_{ab}
+\begin{pmatrix}
+T\\
+N(\beta)\\
+N(\alpha)
+\end{pmatrix}
+\end{align}
+
+Where normal forces can be expressed as (taken from propeller blade element theory):
+\begin{align}
+N=\frac{B}{2}q\left( \frac{1}{2} \sin 2\chi \right) \int_{0}^{R} \left( \frac{a \sin \phi}{1+ \frac{\tan \chi \sin 2\phi}{2}} + 2C_L \cos \gamma\right) b dr \label{E:NormalForceBladeElement}
+\end{align}
+With :
+\begin{itemize}
+\item B : blade number
+\item $\chi$ : replace by AoA or side slip
+\item q : dynamic pressure
+\item a : propeller airfoil lift slope
+\item $\phi$ : relative wind angle at section
+\item $\gamma$ = $\arctan \frac{V \cos \chi}{x\pi n D + V \sin \chi}$
+\item b : blade chord
+\item R : Propeller radius
+\end{itemize}
+
+Equation \ref{E:NormalForceBladeElement} can be approximated within 15$\degree$ by:
+\begin{equation}
+N = K' B \chi q AF D^2 \sin \beta_{0.7} (a_{0.7} + 2 C_{L_{0.7}} \cot\beta_{0.7})/ K_t
+\end{equation}
+With :
+\begin{itemize}
+\item K' : 1.1
+\item AF : activity factor
+\item D : propeller diameter
+\item $\beta_{0.7}$ : blade angle at 0.7R
+\item $C_l$: operating lift coefficient
+\item $K_t$ : 450 000
+\end{itemize}
+
+For propeller wing interaction thrust coefficient and dynamic pressure need to be redefine.
+\begin{eqnarray}
+q^{''} = q + T/S_p
+T_c=\frac{T}{q^{''} S_p}
+T_c^{''} =\frac{T}{q^{''}S_P}
+T_c^' = \frac{KT}{qS}=KT_c\frac{S_p}{S} = \frac{T_c^{''}}{1-T_c^{''}}K\frac{S_P}{S}
+\end{eqnarray}
+With K the total number of propeller.
+
+The lift coefficient is modified as follow:
+\begin{eqnarray}
+C_L= C_L^{''}/(1-T_c^{''})\\
+C_L = C_L^{''}(1+T_c^'\frac{S}{KS_P})
+\end{eqnarray}
+
+Finally Jameson theory gives the lift slope modification due to propeller jet
+\begin{equation}
+C_{L_{\alpha,\mu}}=
+\end{equation}
