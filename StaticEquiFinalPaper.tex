@@ -100,12 +100,12 @@ Additional parameters, namely the climb angle $\gamma$ and the turn rate $\Omega
 \Omega &= -\dot{\phi}\sin\theta + \dot{\psi} \label{E:OmegaDef}
 \end{align}
 
-The heading variable $\psi$ is of no interest for our study, in order to remove its contribution, we can replace the expression of $\dot{\phi}$ and $\dot{\psi}$ in equation \ref{E:OmegaDef} and obtain:
+The heading variable $\psi$ is of no interest for our study, in order to remove its contribution, we can replace the expression of $\dot{\phi}$ and $\dot{\psi}$ in equation (\ref{E:OmegaDef}) and obtain:
 \begin{equation}
 \Omega = \left( q \sin \phi + r \cos \phi \right) \sec \theta \label{E:OmegaUse}
 \end{equation}
 
-Leaving the heading angle aside, equations \ref{E:Sdtdebut}, \ref{E:sdtMoments}, \ref{E:kinematics}, \ref{E:gammaDef} and \ref{E:OmegaUse} represent a set of $N_e=10$ equations to satisfy. The state vector is $\textbf{x}=[V,\alpha,\beta,p,q,r,\phi,\theta]$ and counts $n_x=8$ variables. The input vector corresponding to control surfaces, respectively ailerons, elevator and rudder is $\textbf{u}=[\delta_a, \delta_e, \delta_R]$ with $n_u=3$ variables. Finally we count $n_p=2$ additional parameters $\gamma$ and $\Omega$. The model is now ready to be complemented with a model of distributed propulsion.
+Leaving the heading angle aside, equations (\ref{E:Sdtdebut}), (\ref{E:sdtMoments}), (\ref{E:kinematics}), (\ref{E:gammaDef}) and (\ref{E:OmegaUse}) represent a set of $N_e=10$ equations to satisfy. The state vector is $\textbf{x}=[V,\alpha,\beta,p,q,r,\phi,\theta]$ and counts $n_x=8$ variables. The input vector corresponding to control surfaces, respectively ailerons, elevator and rudder is $\textbf{u}=[\delta_a, \delta_e, \delta_R]$ with $n_u=3$ variables. Finally we count $n_p=2$ additional parameters $\gamma$ and $\Omega$. The model is now ready to be complemented with a model of distributed propulsion.
 
 \subsection{Propulsion modeling}
 
@@ -144,11 +144,11 @@ Mz_b
 \end{figure}
 
 Where $T_{x,i}$ and $y_i$ are respectively the thrust force and distance between the body X axis and the i$^{\text{th}}$ motor. 
-We previously limited our study to propulsive system based on electric engine running propellers. For aircrafts equipped with a propeller or a fan, a common thrust model can be \cite{SachsElectricPerf}:
+Our study has previously been limited to propulsive system based on electric engine running propellers. For aircraft equipped with a propeller or a fan, a common thrust model can be \cite{SachsElectricPerf}:
 \begin{equation}
 	T=PV^{-1} \eta_p \frac{\rho}{\rho_0} \delta x \label{Eq:oldThrustModel}
 \end{equation}
-Where P is the engine power at sea level, V is the flight velocity, $\eta_p$ is the propeller or fan efficiency, $\rho$ the air density and $\delta_x$ the throttle command. Equation \ref{Eq:oldThrustModel} modeles the loss of power of air breathing engines with variation of air density. Electric motors on the contrary, do not suffer from rarefaction of air as turbomachines, such that we may concider the following thrust model for computing $T_{x,i}$ \cite{SachsElectricPerf}:
+Where P is the engine power at sea level, V is the flight velocity, $\eta_p$ is the propeller or fan efficiency, $\rho$ the air density and $\delta_x$ the throttle command. Equation (\ref{Eq:oldThrustModel}) models the loss of power of air breathing engines with variation of air density. Electric motors on the contrary, do not suffer from rarefaction of air as turbomachines, such that we may concider the following thrust model for computing $T_{x,i}$ \cite{SachsElectricPerf}:
 \begin{equation}
 	T_{x,i}=\frac{P_E}{N}V^{-1}\eta_m\eta_p \delta_{x,i}
 \end{equation}
@@ -185,7 +185,7 @@ It should be stressed that the first option leaves room for development of
 
 These aspects will be the object of future studies.
 
-Without loss of generality, additional higher and lower bonds are added on control inputs, angle of attack and bank angle depending on the flight phase. For example, the bank angle is limited to $\pm5\degree$ when studying engine failure at take off as stated by flight regulation \cite{CS25}. These bonds are resumed in table \ref{tab:Bonds} and are in part, dependent on the aircraft selected for the study.
+Without loss of generality, additional higher and lower bounds are added on control inputs, angle of attack and bank angle depending on the flight phase. For example, the bank angle is limited to $\pm5\degree$ when studying engine failure at take off as stated by flight regulation \cite{CS25}. These bounds are resumed in table \ref{tab:Bonds} and are in part, dependent on the aircraft selected for the study.
 
 The following variables are chosen to imposed the flight conditions $[V,\beta,\gamma,\Omega]$. The objective function to minimize is defined as the power required to maintain equilibrium. Such an objective function makes sense in the point of view of the designer who will look for minimizing the power to install on the aircraft. Finally, to simulate engine failure we simple add a constraint on the throttle level of the corresponding engines.
 
@@ -233,7 +233,7 @@ C_n
 p\\
 q\\
 r
-\end{pmatrix}\\
+\end{pmatrix}
 \times \textbf{I}
 \begin{pmatrix}
 p\\
@@ -249,10 +249,10 @@ r
 0 = & \delta_{x,j}
 \end{align}
 
-The problem being now defined, the next section will treat the constitution od the aerodynamic database to compute the aerodynamic coefficients in function of VT area as well as flight phase.
+The problem being now defined, the next section will treat the constitution of the aerodynamic database to compute the aerodynamic coefficients in function of VT area as well as flight phase.
 
 \begin{table}[hbt!]
-	\caption{\label{tab:Bonds} Additional bonds depending on flight phase}
+	\caption{\label{tab:Bonds} Additional bounds depending on flight phase}
 	\centering
 	\begin{tabular}{l|c|c|c}
 		Flight phase & $V<71 m.s^{-1}$& $V>71 m.s^{-1}$ & Engine failure\\

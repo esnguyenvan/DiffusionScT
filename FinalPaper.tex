@@ -57,7 +57,7 @@
 \maketitle
 
 \begin{abstract}
-In the context of aircraft drag reduction, we study the possibility of reducing the area of the vertical tail using Distributed Electric Propulsion while maintaining lateral stability with active Differential Thrust. Distributed Electric Propulsion is usually thought of as a mean to increase aerodynamic efficiency by exploiting the benefic effects of accelerating air around key parts of the aircraft. However, it can also be seen as a collection of actuation devices generating additional moments through Differential Thrust. When the engines are distributed along the lateral axis, the aircraft designer may take advantage of the increase of control authority on yaw to reduce the static stability or the control authority provided by the vertical tail. This in turn would allow a reduction of vertical tail surface area. In order to explore and assess this idea, we suggest a framework to compare flight qualities of a traditional configuration versus a configuration using Distributed Electric Propulsion and Differential Thrust. The framework provides information on the flight envelop and stability of the aircraft by computing a map of the equilibriums. Thanks to a global approach, it allows to study any aircraft or DEP configurations in any flight phase. In addition, a key feature of the framework is the inclusion of the VeDSC method to compute analytically the contribution of the vertical tail to lateral stability. It allows to study effects of a 30\% reduction of VT surface area. Here are presented the first results and potential of using differential thrust to reduce the area of the vertical tail and the reasons for us to continue developing this framework.
+In the context of aircraft drag reduction, we study the possibility of reducing the area of the vertical tail using Distributed Electric Propulsion (DEP) while maintaining lateral stability with active Differential Thrust (DT). Distributed Electric Propulsion is usually thought of as a mean to increase aerodynamic efficiency by exploiting the benefic effects of accelerating air around key parts of the aircraft. However, it can also be seen as a collection of actuation devices generating additional moments through Differential Thrust. When the engines are distributed along the lateral axis, the aircraft designer may take advantage of the increase of control authority on yaw to reduce the static stability or the control authority provided by the Vertical Tail (VT). This in turn would allow a reduction of vertical tail surface area. In order to explore and assess this idea, we suggest a framework to compare flight qualities of a traditional configuration versus a configuration using Distributed Electric Propulsion and Differential Thrust. The framework provides information on the flight envelop and stability of the aircraft by computing a map of the equilibriums. Thanks to a global approach, it allows to study any aircraft or DEP configurations in any flight phase. In addition, a key feature of the framework is the inclusion of the VeDSC\cite{NicolosiNewApproach} method to compute analytically the contribution of the vertical tail to lateral stability. It allows to study effects of a 30\% reduction of VT surface area. Here are presented the first results and potential of using differential thrust to reduce the area of the vertical tail and the reasons for us to continue developing this framework.
 \end{abstract}
 
 \clearpage
@@ -71,6 +71,7 @@ In the context of aircraft drag reduction, we study the possibility of reducing 
 CCV & Control Configured Vehicle\\
 MDO & Multi-Disciplinary Optimization\\
 DEP & Distributed Electric Propulsion\\
+DT & Differential Thrust\\
 VT & Vertical Tail\\
 AR & Aspect Ratio\\
 $\rho$ & Air density (Kg/m$^3$)\\
@@ -89,6 +90,7 @@ $V_v$ & VT volume (-)\\
 $y$ & Lateral position of engine (m)\\
 $m$ & Mass (Kg)\\
 $g$ & Gravitational acceleration (m.s$^{-2}$)\\
+$\alpha$ & Angle of attack ($\SIUnitSymbolDegree$)\\
 $\beta$ & Side slipe angle ($\SIUnitSymbolDegree$)\\
 $\phi$ & Bank angle ($\SIUnitSymbolDegree$)\\
 $\gamma$ & Climb angle ($\SIUnitSymbolDegree$)\\
@@ -104,6 +106,7 @@ $C_l$ & Rolling moment coefficient (-)\\
 $C_m$ & Pitch moment coefficient (-)\\
 $C_n$ & Yawing moment coefficient (-)\\
 $a_v$ & VT lift slope coefficient (-)\\
+$V_{SR}$ & Stall velocity (m/s)\\
 \multicolumn{2}{@{}l}{Subscripts}\\
 v & Vertical Tail\\
 0 & Nominal condition or sea level\\
@@ -127,11 +130,11 @@ b & Body attached frame\\
 
 %\clearpage 
 
-\input{PropWingInteractionModels}
+%\input{PropWingInteractionModels}
 
 
 \section{Conclusion}
-Reduction of Vertical Tail surface area is tackled in this study considering an emerging and game changing technology: Differential Thrust with Distributed Electric Propulsion (DEP). This technology could benefit commuter aircrafts as they are envisioned to be the first all electric aircrafts for passenger transportation. To assess the flight stability and subsequent handling qualities, a framework relying on a trimming algorithm has been developed allowing to compare a tradditional aircraft with one using differential thrust. To take into account the effect of the reduction of Vertical Tail, we could rely on the VeDSC method developed at Naples University. This method increases largely the precision of previous preliminary aerodynamic performance calculation methods such as DATCOM or ESDU by interpolating results of hundreds of high fidelity CFD simulations. Non linear effects parametrized by geometrical parameters are captured and renders our framework extremely versatil to study aircrafts of the type of the ATR72. A simplified formulation of distributed propulsion, without propeller wing interaction effect is used in order to quickly estimate the potential of differential thrust to control the aircraft. 
+Reduction of Vertical Tail surface area is tackled in this study considering an emerging and game changing technology: Differential Thrust with Distributed Electric Propulsion (DEP). This technology could benefit commuter aircraft as they are envisioned to be the first all electric aircraft for passenger transportation. To assess the flight stability and subsequent handling qualities, a framework relying on a trimming algorithm has been developed allowing to compare a tradditional aircraft with one using differential thrust. To take into account the effect of the reduction of Vertical Tail, we could rely on the VeDSC method developed at Naples University. This method increases largely the precision of previous preliminary aerodynamic performance calculation methods such as DATCOM or ESDU by interpolating results of hundreds of high fidelity CFD simulations. Non linear effects parametrized by geometrical parameters are captured and renders our framework extremely versatil to study aircraft of the type of the ATR72. A simplified formulation of distributed propulsion, without propeller wing interaction effect is used in order to quickly estimate the potential of differential thrust to control the aircraft. 
 
 Results show an important increase of control at low velocity, where propellers are generating the highest thrust while control at high velocity is limited. Interestingly, reducing the Vertical Tail conducts to a dramatic increase of the flight envelop, while relying exclusively on Differential Thrust. Overall, it has been shown that using differential thrust can result in reduction of Vertical Tail as well as a new paradigm for the design of the Vertical Tail. This one would have to be sized for a different flight case most probably at higher velocity, assuring a better efficiency of the Vertical Tail and hence a substantial reduction.
 Further studies will concern the variation of the performances with the configuration (number of engines, number of inoperational engines etc...) such as to guide the designer who whishes to design an aircraft using Differential Thrust as well as the introduction of a propeller-wing interaction model.
@@ -152,7 +155,7 @@ Further studies will concern the variation of the performances with the configur
 %
 %\subsection{Reduction of stability, history}
 %\begin{itemize}
-%	\item Name aircrafts flying with reduced longitudinal static stability, and name means of stabilization (\textbf{cite abzug}). 
+%	\item Name aircraft flying with reduced longitudinal static stability, and name means of stabilization (\textbf{cite abzug}). 
 %	\item Introduce the new design schem and CCV domain (\textbf{Find more litterature and aircraft examples})
 %\end{itemize}
 %

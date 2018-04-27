@@ -2,7 +2,7 @@
 In this section, it is explained how the aerodynamic database was obtained to study the effect of varying the vertical tail surface area. Assumptions are re-called to put the focus only on relaxed lateral stability.
 
 \subsection{Reference Aircraft}
-The method developed up to now is generic and could be used with any aircraft given the corresponding aerodynamic characteristics. To study the differences between a traditional configuration and a DEP aircraft, a baseline aircraft representing the class of aircraft most probable for electric propulsion and distributed propulsion has to be selected. Commuters aircraft are often cited as the next big step in developing electric airplanes since most of their mission are within the limits of electric propulsion in terms of endurance \cite{MisconceptionMoore} \cite{StucklMethodsDesignElectriProp}. These aircrafts usually are equipped with turboprop engine and fly at subsonic velocity. A good representative of this class of aircraft is the ATR72 which details are reported in table~\ref{tab:nominalset}.
+The method developed up to now is generic and could be used with any aircraft given the corresponding aerodynamic characteristics. To study the differences between a traditional configuration and a DEP aircraft, a baseline aircraft representing the class of aircraft most probable for electric propulsion and distributed propulsion has to be selected. Commuter aircraft are often cited as the next big step in developing electric airplanes since most of their mission are within the limits of electric propulsion in terms of endurance \cite{MisconceptionMoore} \cite{StucklMethodsDesignElectriProp}. These aircrafts usually are equipped with turboprop engine and fly at subsonic velocity. A good representative of this class of aircraft is the ATR72 which details are reported in table~\ref{tab:nominalset}.
 
 \begin{table}[hbt!]
 	\caption{\label{tab:nominalset} ATR 72 general details \cite{ATRFAAtypecertificate}, \cite{JanesAircraft}}
@@ -38,22 +38,22 @@ For unconventional configurations, it is necessary to carefully select the metho
 	\end{tabular}
 \end{table}
 
-Both analytical and empirical/semi-empirical methods are built on experiences and analysis of conventional configurations. Therefore there can hardly be concidered as generic methods. Numerical methods offer different level of fidelity allowing to capture the specificity of unconventional design. For preliminary designs, VLM or Panel Method, both linear technics, are often prefered over CFD for their favorable precision relative to computational cost.
+Both analytical and empirical/semi-empirical methods are built on experiences and analysis of conventional configurations. Therefore there can hardly be considered as generic methods. Numerical methods offer different level of fidelity allowing to capture the specificity of unconventional design. For preliminary designs, VLM or Panel Method, both linear technics, are often prefered over CFD for their favorable precision relative to computational cost.
 
 Although our configuration is only weakly unconventional, capturing the effect of geometrical changes in VT isn't something that analytical of empirical/semi-empirical methods can do because of the important influence of other aircraft components on the flow impacting the VT. This has been demonstrated by Nicolosi in \cite{NicolosiInvestigationVertical}, where his research team investigated the differences obtained between DATCOM, ESDU estimation technics and CFD methods complemented with wind tunnel experiments.
 
 The main contributors to flow perturbation impacting the VT are the fuselage and the horizontal tail which are acting as end plates, reducing the downwash at the root and tip of the vertical tail. 
 
-Using numerous CFD simulations complemented with wind tunnel test on a generic commuter aircraft model, Nicolosi and his research team could establish a new semi-empirical method called VeDSC. This method focuses on predicting the VT efficiency as a function of VT geometry and aircraft components. The main assumption is the fact that contribution of each components of the aircraft on lateral coefficients: \{$C_{Y}$, $C_{p}$, $C_{r}$\} $\equiv C_{\textrm{lat}}$, can be decoupled in the following way:
+Using numerous CFD simulations complemented with wind tunnel test on a generic commuter aircraft model, Nicolosi and his research team could establish a new semi-empirical method called VeDSC. This method focuses on predicting the VT efficiency as a function of VT geometry and aircraft components. The main assumption is the fact that contribution of each components of the aircraft on lateral coefficients: \{$C_{Y}$, $C_{l}$, $C_{n}$\} $\equiv C_{\textrm{lat}}$, can be decoupled in the following way:
 \begin{eqnarray}
 C_{\textrm{lat}_\beta} = C_{\textrm{lat},F_\beta} + C_{\textrm{lat},W_\beta} + C_{\textrm{lat},v_\beta}
 \end{eqnarray}
-Where it is assumed that the contribution of the VT, $C_{\textrm{lat},v_\beta}$ is influenced by the fuselage, wing and horizontal tail but does not influence the other coefficients $C_{lat,F_\beta}$ and $C_{lat,W_\beta}$.
+Where subscripts F, W, v refer respectively to fuselage, wing and vertical tail and $C_{._\beta}=\frac{\partial C_.}{\partial \beta}$. It is also assumed that the contribution of the VT, $C_{\textrm{lat},v_\beta}$ is influenced by the fuselage, wing and horizontal tail but does not influence the other coefficients $C_{lat,F_\beta}$ and $C_{lat,W_\beta}$.
 The VeDSC method furnishes a way to estimate the coefficient $C_{\textrm{lat},v_\beta}$ through a reformulation of the VT lift slope coefficient defined as follow:
 \begin{equation}
 a_v=K_F K_W K_H C_{L,v_\beta}
 \end{equation}
-Where subscripts F, W, v refer respectively to fuselage, wing and vertical tail. $C_{L,v_\beta}$ is the lift slope of a swept wing determined using Diederich formula for swept wing \cite{DiederichPlanformParameter}. $K_F$, $K_W$ and $K_H$ are corrective coefficients taking into account respectively the fuselage, wing and horizontal tail effects. The reader is refered to \cite{NicolosiVTDesignReview} and \cite{NicolosiDirectionalStabilityReviewofEmpiricalMethod} for the complete formulation of these parameters.
+With $C_{L,v_\beta}$ the lift slope of a swept wing determined using Diederich formula for swept wing \cite{DiederichPlanformParameter}. $K_F$, $K_W$ and $K_H$ are corrective coefficients taking into account respectively the fuselage, wing and horizontal tail effects. The reader is refered to \cite{NicolosiVTDesignReview} and \cite{NicolosiDirectionalStabilityReviewofEmpiricalMethod} for the complete formulation of these parameters.
 
 The VT contribution to lateral coefficients is then calculated using formulas given by Etkin \cite{Etkin}:
 \begin{align}
@@ -65,8 +65,6 @@ The VT contribution to lateral coefficients is then calculated using formulas gi
 \end{align}
 
 This semi-empirical methods required hundreds of CFD simulations to explore a wide variety of parameter changes. Variation and validity intervals of some parameters of interest are shown in Table~\ref{tab:VeDSCParam}. The method could be extrapolated to VT of aspect ratio from 0.5 to 4 since the Diederich formula is valid for these values however the correcting terms would be out of interpolation range.
-
-
 
 Overall the VeDSC method turns to be an adequate semi-empirical method to be used with our reference aircraft. In addition, having a formula to estimate the VT efficiency instead of running a VLM is an important time saving aspect.
 
@@ -153,7 +151,7 @@ To explore the flight performances in the whole flight envelop, it has been chos
 	\caption{Evolution of lateral coefficients of total aircraft with Mach number.}\label{fig:MachVariation}
 \end{figure}
 
-Finally, two ways of modifying the vertical tail are available. The first is the change of surface area while maintaining the aspect ratio constant. This gives linearly varying coefficients as it can be seen in fig~\ref{fig:cstAR}. The second comes from the fact that one may want to keep the horizontal tail high to avoid the slipstream of the propellers, hence the surface should be reduced without modifying the span. In turn the aspect ratio is increased up to reasonnable values to limit extrapolation as shown in fig~\ref{fig:cstSpan}. This variation induces non linear variation of the coefficient and may be find useful for flight qualities.
+Finally, two ways of modifying the vertical tail are available. The first is the change of surface area while maintaining the aspect ratio constant. This gives linearly varying coefficients as it can be seen in Fig~\ref{fig:cstAR}. The second comes from the fact that one may want to keep the horizontal tail high to avoid the slipstream of the propellers, hence the surface should be reduced without modifying the span. In turn the aspect ratio is increased up to reasonnable values to limit extrapolation as shown in Fig~\ref{fig:cstSpan}. This variation induces non linear variation of the coefficient and may be find useful for flight qualities.
 
 \begin{table}[hbt]
 	\caption{\label{tab:VeDSCParam} A few parameter ranges on which VeDSC has been constructed. From \cite{NicolosiNewApproach}} 
