@@ -94,15 +94,15 @@ r
 \end{pmatrix} \label{E:kinematics}
 \end{align}
 
-Additional parameters, namely the climb angle $\gamma$ and the turn rate $\Omega$ are definied as :
+Two additional parameters are defined to find pseudo-equilibriums: the climb angle $\gamma$ and the turn rate $\Omega$, which for steady turns is simply equal to the rate of change of heading:
 \begin{align}
 \sin \gamma &= \cos\alpha\cos\beta\sin\theta - \sin\beta\sin\phi\cos\theta - \sin\alpha\cos\beta\cos\phi\cos\theta \label{E:gammaDef}\\
-\Omega &= -\dot{\phi}\sin\theta + \dot{\psi} \label{E:OmegaDef}
+\Omega &= \dot{\psi} \label{E:OmegaDef}
 \end{align}
 
-The heading variable $\psi$ is of no interest for our study, in order to remove its contribution, we can replace the expression of $\dot{\phi}$ and $\dot{\psi}$ in equation (\ref{E:OmegaDef}) and obtain:
+For steady turn rates, $\dot{\psi}\neq0$ and one can find a pseudo-equilibrium by imposing the turn rate $\Omega$ as a parameter :
 \begin{equation}
-\Omega = \left( q \sin \phi + r \cos \phi \right) \sec \theta \label{E:OmegaUse}
+\Omega = \left( q \sin \phi + r \cos \phi \right) \frac{1}{\cos \theta} \label{E:OmegaUse}
 \end{equation}
 
 Leaving the heading angle aside, equations (\ref{E:Sdtdebut}), (\ref{E:sdtMoments}), (\ref{E:kinematics}), (\ref{E:gammaDef}) and (\ref{E:OmegaUse}) represent a set of $N_e=10$ equations to satisfy. The state vector is $\textbf{x}=[V,\alpha,\beta,p,q,r,\phi,\theta]$ and counts $n_x=8$ variables. The input vector corresponding to control surfaces, respectively ailerons, elevator and rudder is $\textbf{u}=[\delta_a, \delta_e, \delta_R]$ with $n_u=3$ variables. Finally we count $n_p=2$ additional parameters $\gamma$ and $\Omega$. The model is now ready to be complemented with a model of distributed propulsion.
