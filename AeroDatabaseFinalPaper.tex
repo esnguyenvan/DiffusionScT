@@ -48,7 +48,7 @@ Using numerous CFD simulations complemented with wind tunnel test on a generic c
 \begin{eqnarray}
 C_{\textrm{lat}_\beta} = C_{\textrm{lat},F_\beta} + C_{\textrm{lat},W_\beta} + C_{\textrm{lat},v_\beta}
 \end{eqnarray}
-Where subscripts F, W, v refer respectively to fuselage, wing and vertical tail and $C_{._\beta}=\frac{\partial C_.}{\partial \beta}$. It is also assumed that the contribution of the VT, $C_{\textrm{lat},v_\beta}$ is influenced by the fuselage, wing and horizontal tail but does not influence the other coefficients $C_{lat,F_\beta}$ and $C_{lat,W_\beta}$.
+Where subscripts $F$, $W$, $v$ refer respectively to fuselage, wing and vertical tail and $C_{._\beta}=\frac{\partial C_.}{\partial \beta}$. It is also assumed that the contribution of the VT, $C_{\textrm{lat},v_\beta}$ is influenced by the fuselage, wing and horizontal tail but does not influence the other coefficients $C_{lat,F_\beta}$ and $C_{lat,W_\beta}$.
 The VeDSC method furnishes a way to estimate the coefficient $C_{\textrm{lat},v_\beta}$ through a reformulation of the VT lift slope coefficient defined as follow:
 \begin{equation}
 a_v=K_F K_W K_H C_{L,v_\beta}
@@ -94,7 +94,8 @@ In order to establish our aerodynamic database, we modeled the ATR72 without its
 	\caption{Evolution of lateral coefficients of total aircraft with variation of VT area for constant AR.} Whitest marker represents $S_v=0.1S_{v,0}$, darkest represents $S_v=S_{v,0}$, per step of $0.1S_{v,0}$.\label{fig:cstAR}
 \end{figure}
 
-To explore the flight performances in the whole flight envelop, it has been chosen to use a database in function of mach number as only flight parameter. For low speed flight, when the flaps are used, the parameters are assumed to be constant. Then, they vary with the mach number. The evolution of some coefficients with Mach number is illustrated in Fig~\ref{fig:MachVariation}. The Mach number 0.2 taken at see level represents the minimum flight velocity of the ATR72 without flaps.
+Two ways of modifying the vertical tail are available. The first is the change of surface area while maintaining the aspect ratio constant. This gives linearly varying coefficients as it can be seen in Fig~\ref{fig:cstAR}. The second comes from the fact that one may want to keep the horizontal tail high to avoid the slipstream of the propellers, hence the surface should be reduced without modifying the span. In turn the aspect ratio is increased up to reasonnable values to limit extrapolation as shown in Fig~\ref{fig:cstSpan}. This variation induces non linear variation of the coefficient and may be find useful for flight qualities.
+
 
 \begin{figure}[hbt!]
 	\centering
@@ -151,7 +152,8 @@ To explore the flight performances in the whole flight envelop, it has been chos
 	\caption{Evolution of lateral coefficients of total aircraft with Mach number.}\label{fig:MachVariation}
 \end{figure}
 
-Finally, two ways of modifying the vertical tail are available. The first is the change of surface area while maintaining the aspect ratio constant. This gives linearly varying coefficients as it can be seen in Fig~\ref{fig:cstAR}. The second comes from the fact that one may want to keep the horizontal tail high to avoid the slipstream of the propellers, hence the surface should be reduced without modifying the span. In turn the aspect ratio is increased up to reasonnable values to limit extrapolation as shown in Fig~\ref{fig:cstSpan}. This variation induces non linear variation of the coefficient and may be find useful for flight qualities.
+Finally, to explore the flight performances in the whole flight envelop, it has been chosen to use a database in function of mach number as only flight parameter. For low speed flight, when the flaps are used, the parameters are assumed to be constant. Then, they vary with the mach number. The evolution of some coefficients with Mach number is illustrated in Fig~\ref{fig:MachVariation}. The Mach number 0.2 taken at see level represents the minimum flight velocity of the ATR72 without flaps.
+
 
 \begin{table}[hbt]
 	\caption{\label{tab:VeDSCParam} A few parameter ranges on which VeDSC has been constructed. From \cite{NicolosiNewApproach}} 
